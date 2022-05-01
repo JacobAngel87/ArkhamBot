@@ -35,6 +35,10 @@ async def on_voice_state_update(member, before, after):
             if member.id == 678433535920570399: # evan discord id
                 await member.guild.system_channel.send("Evan has a tiny shaft.")
             if member.id == 535610244894556209: # jacob discord id
+                response = requests.get("https://dog.ceo/api/breeds/image/random")
+                text = response.text
+                data = json.loads(text)
+                await member.guild.system_channel.send(data['message'])
                 await member.guild.system_channel.send("Jacob has a MEGA DICK.")
                 
 bot.run(TOKEN)
